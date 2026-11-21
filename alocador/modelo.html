@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel de Alocação</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--tx:#1d1d1b;--mut:#6b6a65;--bd:#e3e1da;--ok:#2f7d4f;--warn:#b07a12;--bad:#b23a2e;--ac:#2c5d8f;--chip:#eef2f7}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--card:#1f1f1d;--tx:#ecebe6;--mut:#a3a29c;--bd:#33332f;--ok:#5cb985;--warn:#e0a83c;--bad:#e2685b;--ac:#7fb0e0;--chip:#26303b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.4rem;margin:0}h2{font-size:1rem;margin:0 0 10px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.mut{color:var(--mut);font-size:.85rem}
+.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}
+.met .v{font-size:1.6rem;font-weight:650}.met .l{font-weight:600}
+.bar{height:6px;background:var(--bd);border-radius:3px;margin:8px 0 4px;overflow:hidden}.bar i{display:block;height:100%}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.bok{background:var(--ok)}.bwarn{background:var(--warn)}.bbad{background:var(--bad)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:6px 4px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}th{color:var(--mut);font-weight:500}
+td.n{text-align:right;white-space:nowrap}
+.sug{border-left:4px solid var(--ac)}.sug.alerta{border-left-color:var(--bad)}.sug.eficiencia{border-left-color:var(--ok)}
+.tag{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.sug h3{margin:2px 0 6px;font-size:1.05rem}.acao{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--chip);color:var(--tx);border-radius:999px;padding:3px 10px;font-size:.82rem}
+button:hover{border-color:var(--ac)}button.sim{border-radius:6px;background:transparent;color:var(--ac);margin-top:10px}
+button[aria-pressed=true]{background:var(--ac);color:var(--card)}
+.exp{margin-top:8px;padding:10px;background:var(--chip);border-radius:8px;font-size:.88rem}
+.cmp{margin-top:8px;font-size:.88rem}
+.dom{margin-bottom:14px;border-left:4px solid var(--ok)}.dom.warn{border-left-color:var(--warn)}.dom.bad{border-left-color:var(--bad)}tr.mud td{background:var(--chip);font-weight:600}
+.banner{display:none;background:var(--ac);color:var(--card);padding:8px 12px;border-radius:8px;margin-bottom:14px}
+section{margin-top:22px}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><h1>Painel de Alocação</h1><span class="mut" id="atual"></span></div>
+<div class="card dom" id="dominante"></div>
+<div class="banner" id="banner"></div>
+
+<section><h2>Métricas de risco</h2><div class="grid g4" id="metricas"></div></section>
+<section><h2>Sugestões</h2><div class="grid g2" id="sugestoes"></div></section>
+<section class="grid g2">
+  <div class="card"><h2>Recursos</h2><div id="recursos"></div></div>
+  <div class="card"><h2>Objetivos e alocação</h2><div id="objetivos"></div></div>
+</section>
+</main>
+
+<!-- A IA substitui apenas este bloco -->
+<script id="dados" type="application/json">
+{
+  "atualizado": "2026-11-21",
+  "recursos": {
+    "horas_semana_disponiveis": 50,
+    "caixa": 40000,
+    "custo_fixo_mensal": 8000,
+    "receitas": [ { "fonte": "Cliente A (consultoria)", "mensal": 7000 }, { "fonte": "Vendas de peças", "mensal": 1500 } ],
+    "outros": [ { "nome": "Impressora 3D", "estado": "bom", "nota": "manutenção atrasada 2 meses" } ]
+  },
+  "objetivos": [
+    { "id": "O1", "nome": "Lançar produto próprio", "prazo_meses": 6, "prioridade": 1, "horas_semana": 15, "gasto_mensal": 1500, "deixa_ativo": true, "especificidade": 0, "salvaguarda": 0, "pele_em_risco_contraparte": true },
+    { "id": "O2", "nome": "Projeto sob medida para Cliente B", "prazo_meses": 4, "prioridade": 2, "horas_semana": 25, "gasto_mensal": 800, "deixa_ativo": false, "especificidade": 3, "salvaguarda": 1, "pele_em_risco_contraparte": false },
+    { "id": "O3", "nome": "Consultoria Cliente A", "prazo_meses": 12, "prioridade": 3, "horas_semana": 15, "gasto_mensal": 0, "deixa_ativo": false, "especificidade": 1, "salvaguarda": 2, "pele_em_risco_contraparte": true }
+  ],
+  "sugestoes": [
+    { "tipo": "alerta", "titulo": "Agenda acima da capacidade", "acao": "Reduzir o projeto do Cliente B de 25 para 10 h/semana até o Cliente B pagar o primeiro marco", "porque": "Você alocou 55 h numa semana de 50. O projeto B é o mais sob medida e o único sem compromisso do cliente, então é o primeiro a ser cortado.", "metrica": "tempo", "ajustes": [ { "objetivo": "O2", "horas_semana": 10 } ], "conceitos": ["toc", "puxado"] },
+    { "tipo": "alerta", "titulo": "Refém do Cliente B", "metrica": "refem", "acao": "Exigir pagamento por marcos ou manter a propriedade do que for desenvolvido", "porque": "Especificidade 3 contra salvaguarda 1: depois de entregue, o trabalho só vale para ele, e quem define o preço passa a ser ele.", "conceitos": ["williamson", "zhengming"] },
+    { "tipo": "eficacia", "titulo": "Proteger o fôlego", "acao": "Suspender os R$ 800/mês gastos no projeto B até o cliente pagar um sinal", "porque": "Você está bancando com o seu caixa um projeto em que o cliente ainda não arriscou nada. Cada mês de fôlego a mais é margem para recusar contratos ruins.", "metrica": "folego", "ajustes": [ { "objetivo": "O2", "gasto_mensal": 0 } ], "conceitos": ["recusa", "puxado"] },
+    { "tipo": "eficiencia", "titulo": "Manter a semente", "acao": "Reservar 2 h/semana para manutenção da impressora", "porque": "Ela sustenta as vendas de peças e o produto próprio; manutenção atrasada é caixa consumido sem aparecer no extrato.", "metrica": "tempo", "conceitos": ["semente", "poka_yoke"] },
+    { "tipo": "alerta", "titulo": "Um cliente paga quase tudo", "acao": "Direcionar 5 das 15 h/semana do produto próprio para vender peças a 2 novos clientes", "porque": "O Cliente A responde por 82% da receita. Se ele atrasar ou renegociar, você não tem como recusar. Novas fontes pequenas valem mais que uma grande agora.", "metrica": "concentracao", "conceitos": ["recusa", "barbell"] }
+  ]
+}
+</script>
+
+<script>
+const CONCEITOS={
+ inversao:["Inversão (Munger)","Pergunte como o plano fracassa e evite esses caminhos, em vez de buscar o caminho ótimo."],
+ semente:["Não comer a semente","Fluxo de caixa só é sobra depois de repor o desgaste do que o gera: saúde, ferramentas, ativos."],
+ recusa:["Margem de recusa","Reserva e custo fixo baixos dão o poder de dizer não. Sem ela, você aceita as condições que vierem."],
+ williamson:["Especificidade de ativos (Williamson)","Investir sob medida para um só cliente te deixa refém na hora de cobrar. A proteção são marcos pagos, contrato ou propriedade retida."],
+ puxado:["Sistema puxado (Toyota) / Effectuation","Só aloque esforço quando a contraparte já arriscou algo verificável: sinal, prazo, recurso."],
+ toc:["Teoria das Restrições (Goldratt)","Um sistema rende o que o seu gargalo permite. Resolva uma restrição por vez; otimizar o resto é desperdício."],
+ zhengming:["Retificação dos nomes (Confúcio)","Combinado bom é escrito, com critério de aceite claro. A ambiguidade gera conflito depois."],
+ perda_aceitavel:["Perda aceitável (Sarasvathy)","Aposte apenas o que pode perder sem ruína; assim a incerteza vira oportunidade e não risco."],
+ alavancagem:["Alavancagem composta","Prefira trabalho que deixa ferramenta, método ou ativo, e não só horas vendidas."],
+ pareto:["Princípio de Pareto","Uma minoria das frentes gera a maior parte do resultado; concentre nelas."],
+ poka_yoke:["Poka-yoke (Shingo)","Torne o erro impossível ou visível no próprio processo, em vez de depender de lembrar."],
+ barbell:["Barbell (Taleb)","Combine a maior parte em posições seguras e uma pequena parte em apostas de ganho assimétrico."]
+};
+const D=JSON.parse(document.getElementById('dados').textContent);D.objetivos=D.objetivos||[];D.sugestoes=D.sugestoes||[];
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num=(v,d=1)=>v.toLocaleString('pt-BR',{maximumFractionDigits:d});
+const R=D.recursos||{}, brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const sum=(a,k)=>a.reduce((s,x)=>s+(+x[k]||0),0);
+
+function metricas(objs){
+  const h=sum(objs,'horas_semana'), disp=R.horas_semana_disponiveis||1;
+  const rec=sum(R.receitas||[],'mensal'), queima=(R.custo_fixo_mensal||0)+sum(objs,'gasto_mensal')-rec;
+  const maior=Math.max(0,...(R.receitas||[]).map(x=>x.mensal));
+  const frentes=objs.filter(o=>o.horas_semana>0).length;
+  const refem=objs.filter(o=>(o.especificidade||0)>(o.salvaguarda||0));
+  const tempo=h/disp, folego=queima<=0?Infinity:R.caixa/queima, conc=rec?maior/rec:0;
+  return {
+   tempo:{l:"Comprometimento do tempo",v:Math.round(tempo*100)+"%",d:`${num(h)} h de ${num(disp)} h/semana`,p:tempo,s:tempo<=.8?'ok':tempo<=1?'warn':'bad',q:"Acima de 100% algo será feito mal ou sacrificado (geralmente a saúde)."},
+   folego:{l:"Fôlego de caixa · risco de insolvência",v:folego===Infinity?"caixa crescendo":num(folego)+" meses",d:queima>0?`gasto líquido ${brl(queima)}/mês`:`sobra ${brl(-queima)}/mês`,p:folego===Infinity?1:Math.min(folego/12,1),s:folego>=6?'ok':folego>=3?'warn':'bad',q:"Meses até o caixa zerar no ritmo atual. Abaixo de 3, você perde a margem de recusa."},
+   concentracao:{l:"Concentração de receita",v:Math.round(conc*100)+"%",d:"maior fonte sobre o total",p:conc,s:conc<=.4?'ok':conc<=.6?'warn':'bad',q:"Acima de 60%, um único cliente dita as suas condições."},
+   refem:{l:"Projetos sem proteção",v:refem.length,d:refem.length?refem.map(o=>esc(o.nome)).join(', '):'nenhum',p:Math.min(refem.length/2,1),s:refem.length?'bad':'ok',q:"Trabalho feito sob medida para um cliente, sem garantia de pagamento: depois de entregue, ele dita o preço."},
+   frentes:{l:"Projetos em paralelo",v:frentes,d:"objetivos com horas alocadas",p:Math.min(frentes/6,1),s:frentes<=3?'ok':frentes<=5?'warn':'bad',q:"Cada frente a mais divide a atenção e atrasa todas."}
+  };
+}
+function cardMet(m,base){
+  const cmp=base&&base.v!==m.v?`<div class="mut">antes: ${base.v}</div>`:'';
+  return `<div class="card met"><div class="l">${m.l}</div><div class="v ${m.s}">${m.v}</div>
+  <div class="bar"><i class="b${m.s}" style="width:${Math.min(m.p,1)*100}%"></i></div>
+  <div class="mut">${m.d}</div>${cmp}<div class="mut" style="margin-top:6px">${m.q}</div></div>`;
+}
+const base=metricas(D.objetivos);
+function render(objs,label){
+  const m=metricas(objs);
+  document.getElementById('metricas').innerHTML=Object.keys(m).map(k=>cardMet(m[k],label?base[k]:null)).join('');
+  document.querySelectorAll('.cmp[data-m]').forEach(el=>{const k=el.dataset.m;el.querySelector('span').textContent=label&&base[k].v!==m[k].v?base[k].v+' → '+m[k].v:m[k].v});
+  const rank={bad:0,warn:1,ok:2},dom=Object.values(m).sort((x,y)=>rank[x.s]-rank[y.s])[0];
+  document.getElementById('dominante').innerHTML=dom.s==='ok'?'Nenhuma métrica em risco agora.':`<b>Seu gargalo agora:</b> ${dom.l} (${dom.v}). Resolva este antes de expandir.`;
+  document.getElementById('dominante').className='card dom '+dom.s;
+  const b=document.getElementById('banner');b.style.display=label?'block':'none';b.textContent=label?'Simulando: '+label+' (clique de novo para voltar)':'';
+  document.getElementById('objetivos').innerHTML=`<table><tr><th>Objetivo</th><th class="n">h/sem</th><th class="n">gasto/mês</th><th>Prazo</th></tr>${objs.map(o=>{const or=D.objetivos.find(x=>x.id===o.id)||o,mud=label&&(or.horas_semana!==o.horas_semana||or.gasto_mensal!==o.gasto_mensal);return `<tr${mud?' class="mud"':''}><td>${esc(o.nome)}${o.deixa_ativo?' <span class="mut">· gera ativo</span>':''}</td><td class="n">${o.horas_semana}</td><td class="n">${brl(o.gasto_mensal||0)}</td><td>${o.prazo_meses} m</td></tr>`}).join('')}</table>`;
+}
+document.getElementById('atual').textContent='Atualizado em '+new Date(D.atualizado+'T12:00').toLocaleDateString('pt-BR');
+document.getElementById('recursos').innerHTML=`<table>
+<tr><td>Horas disponíveis</td><td class="n">${num(R.horas_semana_disponiveis)} h/sem</td></tr>
+<tr><td>Caixa</td><td class="n">${brl(R.caixa)}</td></tr>
+<tr><td>Custo fixo</td><td class="n">${brl(R.custo_fixo_mensal)}/mês</td></tr>
+${(R.receitas||[]).map(r=>`<tr><td>Receita · ${esc(r.fonte)}</td><td class="n">${brl(r.mensal)}/mês</td></tr>`).join('')}
+${(R.outros||[]).map(o=>`<tr><td>${esc(o.nome)}</td><td class="n">${esc(o.estado)}${o.nota?' · '+esc(o.nota):''}</td></tr>`).join('')}</table>`;
+
+const TIPO={alerta:"Alerta · risco",eficacia:"Foco · fazer a coisa certa",eficiencia:"Economia · fazer com menos"};
+const ORD={alerta:0,eficacia:1,eficiencia:2};D.sugestoes.forEach((s,i)=>s._i=i);const SG=[...D.sugestoes].sort((a,b)=>(ORD[a.tipo]??3)-(ORD[b.tipo]??3));
+document.getElementById('sugestoes').innerHTML=SG.map(s=>{const i=s._i;return `<div class="card sug ${s.tipo}">
+<span class="tag">${TIPO[s.tipo]||s.tipo}</span><h3>${esc(s.titulo)}</h3>
+<div class="acao">${esc(s.acao)}</div><p style="margin:6px 0 0">${esc(s.porque)}</p>
+${s.metrica&&base[s.metrica]?`<div class="cmp mut" data-m="${s.metrica}">Métrica afetada: <b>${base[s.metrica].l}</b> = <span>${base[s.metrica].v}</span></div>`:''}
+${s.ajustes?`<button class="sim" data-i="${i}" aria-pressed="false">▶ Simular esta sugestão</button>`:''}
+<div class="chips">${(s.conceitos||[]).filter(c=>CONCEITOS[c]).map(c=>`<button class="cc" data-c="${c}" data-i="${i}" aria-expanded="false">${CONCEITOS[c][0]}</button>`).join('')}</div>
+<div class="exp" id="exp${i}" hidden></div></div>`}).join('');
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.cc');
+  if(c){const box=document.getElementById('exp'+c.dataset.i),open=c.getAttribute('aria-expanded')==='true';
+    box.parentNode.querySelectorAll('.cc').forEach(x=>x.setAttribute('aria-expanded','false'));
+    if(open){box.hidden=true;return}
+    c.setAttribute('aria-expanded','true');box.hidden=false;box.innerHTML=`<b>${CONCEITOS[c.dataset.c][0]}</b><br>${CONCEITOS[c.dataset.c][1]}`;return}
+  const s=e.target.closest('.sim');
+  if(s){const on=s.getAttribute('aria-pressed')==='true';
+    document.querySelectorAll('.sim').forEach(x=>{x.setAttribute('aria-pressed','false');x.textContent='▶ Simular esta sugestão'});
+    if(on){render(D.objetivos);return}
+    const sg=D.sugestoes[s.dataset.i],objs=D.objetivos.map(o=>({...o}));
+    sg.ajustes.forEach(a=>{const o=objs.find(x=>x.id===a.objetivo);if(o)Object.assign(o,a,{id:o.id})});
+    s.setAttribute('aria-pressed','true');s.textContent='■ Voltar ao atual';render(objs,sg.titulo)}
+});
+render(D.objetivos);
+</script>
+</body>
+</html>
