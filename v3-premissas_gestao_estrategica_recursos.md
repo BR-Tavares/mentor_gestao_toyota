@@ -1,6 +1,6 @@
-# Premissas do Mentor (v5)
+# Premissas do Mentor (v6)
 
-28 premissas em sete blocos. Blocos A a E vêm das seis obras de base e da pesquisa complementar verificada. O bloco F, acrescentado na v4, contém as premissas de fundamento que reorientam as demais: o objetivo é a continuidade guiada pela vocação, não o valor econômico.
+30 premissas em oito blocos. Blocos A a E vêm das seis obras de base e da pesquisa complementar verificada. O bloco F, acrescentado na v4, contém as premissas de fundamento que reorientam as demais: o objetivo é a continuidade guiada pela vocação, não o valor econômico. O bloco G (v5) trata do contexto cultural; o bloco H (v6), do julgamento e do ciclo de aprendizagem.
 
 Formato: enunciado · fundamento · leitura RPG. Ao final, tabela de premissas por perspectiva.
 
@@ -12,6 +12,7 @@ Formato: enunciado · fundamento · leitura RPG. Ao final, tabela de premissas p
 - Bloco E — Estrutura do sistema (21 a 23)
 - Bloco F — Propósito, balizas e qualidade embutida (24 a 27)
 - Bloco G — Contexto cultural (28)
+- Bloco H — Julgamento e ciclo de aprendizagem (29 e 30)
 - Premissas por perspectiva
 
 **Nota de leitura:** onde as premissas antigas dizem "valor", leia "resultado que sustenta a continuidade da vocação" (ver premissa 24).
@@ -170,12 +171,12 @@ Quando o trabalho passa para outras pessoas, ensinar e confiar não basta, sobre
 
 | Perspectiva | Premissas centrais |
 |---|---|
-| 1. Postura pessoal | 3, 7, 9, 19, 20, 24, 25, 26 |
+| 1. Postura pessoal | 3, 7, 9, 19, 20, 24, 25, 26, 28, 29 |
 | 2. Uso do tempo | 1, 2, 4, 5, 10, 11, 12, 13, 16 |
-| 3. Relação com outros | 11, 14, 15, 23, 25, 27 |
+| 3. Relação com outros | 11, 14, 15, 23, 25, 27, 28, 29, 30 |
 | 4. Trabalho focado | 2, 6, 17, 18, 26 |
-| 5. Redução de risco | 8, 16, 20, 21, 22, 25, 27 |
-| 6. Conhecimento embutido no produto | 1, 13, 22, 27 |
+| 5. Redução de risco | 8, 16, 20, 21, 22, 25, 27, 28, 29 |
+| 6. Conhecimento embutido no produto | 1, 13, 22, 27, 28, 30 |
 
 ---
 
@@ -193,3 +194,32 @@ A escravidão no Brasil durou mais de três séculos e foi abolida sem integraç
 | 3. Relação com outros | Liderar por ensino e respeito, nunca pelo modelo do capataz; entender o conformismo como defesa |
 | 5. Redução de risco | Antecipar resistência institucional a ideias que ameaçam hierarquias |
 | 6. Conhecimento embutido | Evidência embutida no produto contorna a desconfiança pessoal e a hierarquia de títulos |
+
+---
+
+## Bloco H — Julgamento e ciclo de aprendizagem (v6)
+
+Os recursos capturados (tempo, atenção, energia, credibilidade, cooperação) aparecem nos blocos anteriores. Este bloco trata da força que impede o ciclo de melhoria de girar: o medo de ser julgado. Como na premissa 28, isso não é defeito da pessoa. A pessoa é parte do sistema, e o ego defensivo é uma resposta ao risco que esse sistema produz.
+
+**29. O medo de julgamento captura recursos e trava o PDCA; o ego defensivo é uma resposta ao sistema, não um defeito da pessoa.**
+Quando o valor da pessoa parece estar em jogo, ela se avalia antes de ser avaliada pelos outros: julga a si mesma em excesso, mas com critérios superficiais (aparência de acabamento, o que o chefe vai achar), porque não existe critério explícito para julgar o trabalho. O resultado é previsível: a entrega só aparece "pronta", o rascunho é escondido, o erro vira explicação, a verificação (o C do PDCA) é evitada, e muita energia vai para proteger a imagem em vez de melhorar o produto.
+O medo tem duas origens, que devem ser diagnosticadas separadamente porque pedem contramedidas diferentes:
+- **Externa (ambiente que pune de verdade):** o medo é uma leitura correta do risco. Contramedida: tornar seguro expor o erro. Pedir humildade a quem é punido é injusto e não funciona.
+- **Interna (identidade fundida com o trabalho):** o erro no trabalho é lido como "eu sou inadequado". Contramedida: separar a pessoa do produto e praticar o "pense levemente sobre si mesmo".
+As duas se reforçam: o ambiente punitivo produz egos defensivos, e egos defensivos mantêm o ambiente punitivo. A ordem é primeiro o ambiente, depois o ego.
+*Fundamento:* Edmondson (segurança psicológica: equipes melhores relatam mais erros); Deming (ponto 8 dos 14 pontos: "elimine o medo"); Dweck (mentalidade fixa); Covington (teoria da autoestima e autossabotagem); Kegan e Lahey (o "segundo emprego" de esconder fraquezas); Leary (sociômetro); Gilovich (efeito holofote); Ohno ("nenhum problema é um problema"). Referências de postura, sem valor de evidência: Musashi, *Dokkōdō* ("pense levemente sobre si mesmo e profundamente sobre o mundo") e o *anatta* budista. A frase "por trás da raiva está o ego" é frequentemente atribuída a Musashi, mas não está nos textos dele.
+*Grau de evidência:* segurança psicológica e a relação entre medo e não-relato de erros são consolidadas; a ligação com o ego é uma síntese interpretativa.
+*RPG:* o personagem que não aceita perder HP nunca entra no combate e nunca ganha XP.
+
+**30. O PDCA só gira onde o julgamento é feito contra um critério combinado antes, em ciclos pequenos, com o líder como treinador.**
+O PDCA é universal no papel e raro na prática. Onde funcionou (Toyota, NUMMI, Virginia Mason, aviação), havia cinco condições: (1) o critério de verificação definido no P, para que o C julgue o produto e não a pessoa; (2) lotes pequenos, para que cada julgamento seja pequeno; (3) erro exposto valorizado e erro escondido tratado como o problema real; (4) o líder pergunta "o que você aprendeu?" e mostra os próprios rascunhos primeiro; (5) folga para verificar. Onde falhou, o PDCA virou formulário, meta ou instrumento de cobrança: a verificação passou a servir para punir, e as pessoas aprenderam a fazer só P e D. Em um sistema que já existe, o PDCA não se instala por anúncio; ele cresce a partir de um ciclo pequeno, protegido e visível, que serve de prova.
+*Fundamento:* Deming e Moen e Norman (PDSA: o C é estudo, não inspeção); Rother (*Toyota Kata*); Spear e Bowen; Shook (NUMMI: mudar o comportamento muda a cultura); Kenney (Virginia Mason); Reason e Dekker (cultura justa); estudo detalhado em `pdca-estudo.md`.
+*Grau de evidência:* os casos são documentados; a lista das cinco condições é uma síntese interpretativa.
+*RPG:* o grupo só explora a masmorra nova se morrer no treino não apaga o personagem.
+
+| Perspectiva | Uso das premissas 29 e 30 |
+|---|---|
+| 1. Postura pessoal | Perceber quando se está protegendo a imagem em vez de testar; mostrar o próprio rascunho |
+| 3. Relação com outros | Combinar o critério antes; elogiar quem expõe o erro; revisar o produto, não a pessoa |
+| 5. Redução de risco | Erro escondido é o maior risco; o medo atrasa a descoberta (ver premissa 27) |
+| 6. Conhecimento embutido | Critério embutido no produto troca o julgamento pessoal pelo julgamento objetivo |
