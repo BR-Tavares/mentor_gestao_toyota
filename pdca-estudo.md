@@ -1,24 +1,24 @@
 # PDCA: onde funcionou, onde falhou e como implantar num sistema que já existe
 
-Estudo de apoio às premissas 29 e 30. Versão 1, para refinamento.
+Estudo de apoio às premissas 29 e 30. Termos Toyota (STP, andon, nemawashi, kata) estão explicados em `references/toyota.md`.
 
 **Pergunta de trabalho:** em que ambiente o PDCA se desenvolve, em que ambiente ele morre, e como um líder o faz girar num sistema que já tem medo de julgamento e cultura de "entregar tudo pronto"?
 
 ## 1. O que o PDCA é (e o que costuma virar)
 
-- **Origem:** Shewhart (anos 1930) propôs o ciclo como método científico aplicado à produção. Deming o levou ao Japão (1950). Os japoneses o chamaram de PDCA.
+- **Origem:** Shewhart (1939) descreveu uma sequência linear: especificar, produzir, inspecionar. Deming a apresentou como ciclo no Japão em 1950, e os japoneses a reformularam como PDCA (Moen e Norman, 2009).
 - **Correção de Deming:** mais tarde ele preferiu **PDSA** (*Study*, estudar), porque "Check" virou "inspecionar". No sentido original, o terceiro passo é comparar o resultado com a previsão e aprender. Não é conferir se a pessoa acertou (Moen e Norman, 2009).
-- **Ideia central:** cada ciclo é um experimento. Se a previsão falha, isso é informação, não fracasso. Por isso o PDCA depende de que o erro seja falável.
+- **Ideia central:** cada ciclo é um experimento. Se a previsão falha, isso é informação, não fracasso. Por isso o PDCA depende de que o erro possa ser dito sem risco.
 
 ## 2. Onde funcionou
 
 | Caso | O que aconteceu | Condição que fez funcionar |
 |---|---|---|
-| **Toyota (STP)** | Milhares de pequenos experimentos diários, conduzidos por quem faz o trabalho | Padrão como linha de base; o líder ensina a resolver em vez de resolver; problema visível é valorizado (Spear e Bowen, 1999; Rother, *Toyota Kata*, 2009) |
-| **NUMMI (GM e Toyota, Califórnia, 1984)** | A pior fábrica da GM, com os mesmos operários e o mesmo sindicato, chegou em dois anos à qualidade das fábricas japonesas | O sistema mudou, não as pessoas: andon que qualquer um puxa, ajuda imediata em vez de bronca, treino no Japão. "Muda-se a cultura mudando o que as pessoas fazem, não o que pensam" (John Shook) |
+| **Toyota (STP, Sistema Toyota de Produção)** | Milhares de pequenos experimentos diários, conduzidos por quem faz o trabalho | Padrão como linha de base; o líder ensina a resolver em vez de resolver; problema visível é valorizado (Spear e Bowen, 1999; Rother, *Toyota Kata*, 2009) |
+| **NUMMI (GM e Toyota, Califórnia, 1984)** | Uma das piores fábricas da GM, com a maioria dos operários recontratados e o mesmo sindicato (UAW), chegou em poucos anos à qualidade das fábricas japonesas | O sistema mudou, não as pessoas: andon (cordão que qualquer operador puxa para parar a linha), ajuda imediata em vez de bronca, treino no Japão. Muda-se a cultura mudando o que as pessoas fazem, não o que pensam (paráfrase de John Shook, *MIT Sloan Management Review*, 2010) |
 | **Virginia Mason (hospital, Seattle, desde 2002)** | Aplicação do STP à saúde; sistema de "alerta de segurança do paciente" que qualquer funcionário pode acionar | Direção comprometida por mais de uma década; o alerta de erro passou a ser elogiado; houve crises no caminho (Kenney, *Transforming Health Care*) |
-| **Aviação comercial** | Relato voluntário de erros (ASRS, nos EUA) e cultura justa | Quem relata o próprio erro tem proteção; a punição fica reservada à imprudência deliberada (Reason; Dekker, *Just Culture*) |
-| **Alcoa (Paul O'Neill, 1987)** | A segurança virou o único indicador inegociável; qualquer acidente era informado ao presidente em 24 horas | Um critério claro e compartilhado; o problema subia rápido sem caça a culpados |
+| **Aviação comercial** | Relato voluntário de erros (ASRS, sistema de relatos da NASA) e cultura justa (distingue erro honesto de imprudência) | Quem relata o próprio erro tem proteção; a punição fica reservada à imprudência deliberada (Reason; Dekker, *Just Culture*) |
+| **Alcoa (Paul O'Neill, 1987)** | A segurança virou prioridade número um; acidentes chegavam ao presidente em 24 horas, com plano de prevenção (relato jornalístico de Duhigg, *O Poder do Hábito*; tratar como ilustrativo) | Um critério claro e compartilhado; o problema subia rápido sem caça a culpados |
 
 **Padrão comum:** o critério estava combinado antes, o ciclo era pequeno e frequente, quem expunha o problema era protegido, o líder ia ao lugar real e havia tempo reservado para verificar.
 
@@ -28,10 +28,10 @@ Estudo de apoio às premissas 29 e 30. Versão 1, para refinamento.
 |---|---|---|
 | **GM depois da NUMMI** | A GM não conseguiu levar o modelo para as outras fábricas por anos | Gerentes médios viam o andon como perda de controle; copiaram as ferramentas, não a relação com o erro |
 | **Lean importado como programa** | Quadros, formulários e eventos kaizen sem mudança de conduta da liderança | O PDCA virou ritual: relatório preenchido para cima, não aprendizado. (A cifra "70% das implantações falham" circula muito, mas tem base fraca: trate como anedótica) |
-| **Mid Staffordshire (hospital, Reino Unido, 2005 a 2009)** | Mortes evitáveis num ambiente de metas e medo (Relatório Francis, 2013) | Metas acima de tudo; quem levantava problemas era ignorado ou punido; o C virou cobrança |
+| **Mid Staffordshire (hospital, Reino Unido, 2005 a 2009)** | Mortes evitáveis num ambiente de metas e medo (Relatório Francis, 2013) | Metas de custo e a busca do status de *foundation trust* acima de tudo; quem levantava problemas era ignorado ou punido; o C virou cobrança |
 | **Wells Fargo (2016)** | Milhões de contas falsas para bater metas | O que é medido vira alvo (premissa 14); a verificação media o número, não a realidade |
-| **Boeing 737 MAX (2018 a 2019)** | Preocupações técnicas foram abafadas pela pressão de prazo e custo | O sinal de erro existia, mas o sistema não deixava que ele parasse a linha |
-| **Toyota (recalls de 2009 e 2010)** | A própria Toyota perdeu qualidade ao crescer rápido demais | O crescimento superou a capacidade de formar líderes-treinadores; a Toyota reconheceu e corrigiu (Liker e Ogden, *Toyota Under Fire*) |
+| **Boeing 737 MAX (acidentes de 2018 e 2019)** | Falhas de projeto e certificação do sistema MCAS (relatório do Congresso dos EUA, 2020) | O sinal de erro existia, mas a pressão de prazo e custo e a certificação delegada impediram que ele parasse o projeto |
+| **Toyota (recalls de 2009 e 2010)** | Falhas reais (tapete e pedal) e resposta lenta; parte da crise foi de percepção, sem falha eletrônica confirmada (NHTSA e NASA) | Akio Toyoda admitiu ao Congresso (2010) que o crescimento superou a capacidade de formar pessoas; Liker e Ogden (*Toyota Under Fire*) relativizam a causa |
 
 **Padrão comum:** a verificação servia para julgar pessoas, as metas vinham de cima sem método, os problemas eram punidos ou ignorados e não havia folga.
 
@@ -53,7 +53,7 @@ Estudo de apoio às premissas 29 e 30. Versão 1, para refinamento.
 2. A pessoa se antecipa e se autoavalia antes dos outros, em excesso, mas com critérios superficiais: o que parece acabado e o que o chefe vai achar.
 3. Para reduzir o risco, ela entrega tudo de uma vez e o mais tarde possível.
 4. Cada entrega fica grande, então cada julgamento fica grande e o medo aumenta.
-5. O ciclo se reforça, e o PDCA vira "PD": planeja, faz e torce.
+5. O ciclo se reforça, e o PDCA vira só "PD": planeja, faz e torce, sem verificar nem ajustar.
 
 **Ponto de alavanca:** combinar o critério antes transforma o julgamento sobre a pessoa num teste do produto. Isso também corrige a superficialidade da análise, porque dá à pessoa algo concreto para verificar.
 
